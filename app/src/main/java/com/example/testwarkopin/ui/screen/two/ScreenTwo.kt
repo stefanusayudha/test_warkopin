@@ -56,11 +56,17 @@ class ScreenTwo : Fragment() {
     }
 
     private fun initAction() {
-        binding.loadBtn.setOnClickListener {
-            vm.clearList()
-            binding.flipper.displayedChild = 0
-            vm.getAgentList()
-        }
+        binding.refreshButton
+            .setOnClickListener {
+                vm.clearList()
+                binding.flipper.displayedChild = 0
+                vm.getAgentList()
+            }
+
+        binding.clearButton
+            .setOnClickListener {
+                vm.clearList()
+            }
     }
 
     private fun initObserver() {

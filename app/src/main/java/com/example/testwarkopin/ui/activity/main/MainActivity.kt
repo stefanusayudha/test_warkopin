@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
     private fun setupContentView() {
         val view = binding.root
         setContentView(view)
+        supportActionBar?.title = "Test One"
     }
 
     private fun initAction() {
@@ -49,17 +50,23 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, ScreenOne())
             .commit()
+
+        supportActionBar?.title = "Test One"
     }
 
     override fun gotoTabTwo() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, ScreenTwo())
             .commit()
+
+        supportActionBar?.title = "Test Two"
     }
 
     override fun gotoTabThree() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, ScreenThree())
             .commit()
+
+        supportActionBar?.title = "Test Three"
     }
 }

@@ -60,12 +60,16 @@ class ScreenThree : Fragment() {
     }
 
     private fun initAction() {
-        binding.loadBtn.setOnClickListener {
+        binding.refreshButton.setOnClickListener {
             loadData()
         }
 
-        binding.fab.setOnClickListener {
+        binding.filterButton.setOnClickListener {
             openFilterModal()
+        }
+
+        binding.clearButton.setOnClickListener {
+            vm.clearList()
         }
     }
 
@@ -87,7 +91,7 @@ class ScreenThree : Fragment() {
     private fun loadData() {
         vm.clearList()
         binding.flipper.displayedChild = 0
-        vm.getAgentList()
+        vm.getAgentList(filter)
     }
 
     private fun agentListCollector(

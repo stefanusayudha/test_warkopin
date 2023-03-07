@@ -17,9 +17,9 @@ class ScreenThreeViewModel(
     val agentList: StateFlow<List<AgentsItem>>
         get() = _agentListState
 
-    fun getAgentList() {
+    fun getAgentList(pld: AgentPayload) {
         viewModelScope.launch {
-            val data = repo.getAgentList(AgentPayload())
+            val data = repo.getAgentList(pld)
             _agentListState.emit(data)
         }
     }
