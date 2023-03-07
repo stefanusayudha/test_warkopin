@@ -9,6 +9,20 @@
     android:orientation="horizontal"
     app:cardCornerRadius="8dp">
 
+    <!--
+    @field:SerializedName("min")
+	val min: Int? = null,
+
+	@field:SerializedName("max")
+	val max: Int? = null,
+
+	@field:SerializedName("last_sold_date")
+	val lastSoldDate: String? = null,
+
+	@field:SerializedName("count")
+	val count: Int? = null
+	-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -45,6 +59,13 @@
                 android:singleLine="true"
                 android:text="Name : "
                 android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Count :"
+                android:textAppearance="?attr/textAppearanceBody2" />
 
             <TextView
                 android:id="@+id/desc"

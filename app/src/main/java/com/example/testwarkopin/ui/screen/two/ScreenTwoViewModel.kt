@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testwarkopin.domain.AgentRepository
 import com.example.testwarkopin.domain.model.AgentsItem
+import com.example.testwarkopin.domain.payload.AgentPayload
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -18,7 +19,7 @@ class ScreenTwoViewModel(
 
     fun getAgentList() {
         viewModelScope.launch {
-            val data = repo.getAgentList()
+            val data = repo.getAgentList(AgentPayload())
             _agentListState.emit(data)
         }
     }

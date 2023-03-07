@@ -1,5 +1,6 @@
 package com.example.testwarkopin.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -32,6 +33,7 @@ class AgentListAdapter(
         )
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(
         holder: Holder, position: Int
     ) {
@@ -46,8 +48,9 @@ class AgentListAdapter(
                 .placeholder(R.drawable.ic_singularity_logo)
                 .into(binding.img)
 
-        binding.name.text = data.name
-        binding.desc.text = data.description
+        binding.name.text = "Name : ${data.name}"
+        binding.count.text = "Point :  ${data.recentlySold?.count ?: 0}"
+        binding.desc.text = "Desc : ${data.description}"
 
         binding.root.setOnClickListener {
             onClick.invoke(data)
