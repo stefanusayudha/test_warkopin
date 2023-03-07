@@ -22,4 +22,10 @@ class ScreenOneViewModel(
             _userListState.emit(list)
         }
     }
+
+    fun clearUserList() {
+        viewModelScope.launch {
+            _userListState.emit(listOf())
+        }
+    }
 }

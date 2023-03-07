@@ -67,7 +67,7 @@ class ScreenOne : Fragment(), OnClickListener {
     }
 
     private fun clearList() {
-        adapter.submitList(mutableListOf())
+        vm.clearUserList()
     }
 
     private fun userListCollector(list: List<User>) {
