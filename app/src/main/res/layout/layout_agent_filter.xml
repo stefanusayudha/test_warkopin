@@ -12,6 +12,7 @@
         android:textAppearance="?attr/textAppearanceHeadline4" />
 
     <TextView
+        android:id="@+id/minimumPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
