@@ -1,4 +1,4 @@
-package com.example.testwarkopin.ui
+package com.example.testwarkopin.ui.activity.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,6 @@ import com.example.testwarkopin.ui.screen.one.ScreenOne
 import com.example.testwarkopin.ui.screen.three.ScreenThree
 import com.example.testwarkopin.ui.screen.two.ScreenTwo
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 
 class MainActivity : AppCompatActivity(), MainActivityContract {
 

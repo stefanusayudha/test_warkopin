@@ -1,4 +1,4 @@
-package com.example.testwarkopin.ui
+package com.example.testwarkopin.ui.activity.main
 
 import android.view.View
 import android.view.View.OnClickListener
