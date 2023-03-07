@@ -1,2 +1,2 @@
 ## Preview
-https://github.com/stefanusayudha/test_warkopin/blob/main/preview.mp4
+see preview in file: [preview](preview.mp4)
