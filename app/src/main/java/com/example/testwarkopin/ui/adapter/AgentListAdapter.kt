@@ -48,7 +48,7 @@ class AgentListAdapter(
                 .placeholder(R.drawable.ic_singularity_logo)
                 .into(binding.img)
 
-        binding.name.text = "Name : ${data.name}"
+        binding.name.text = "${data.name}"
         binding.count.text = "Point :  ${data.recentlySold?.count ?: 0}"
         binding.desc.text = "Desc : ${data.description}"
 
