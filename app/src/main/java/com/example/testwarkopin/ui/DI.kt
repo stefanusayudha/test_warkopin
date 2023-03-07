@@ -1,6 +1,8 @@
 package com.example.testwarkopin.ui
 
 import com.example.testwarkopin.ui.screen.one.ScreenOneViewModel
+import com.example.testwarkopin.ui.screen.three.ScreenThree
+import com.example.testwarkopin.ui.screen.three.ScreenThreeViewModel
 import com.example.testwarkopin.ui.screen.two.ScreenTwoViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -12,5 +14,8 @@ val uiModule = module {
     }
     viewModel {
         ScreenTwoViewModel(get())
+    }
+    viewModel {
+        ScreenThreeViewModel(get())
     }
 }
