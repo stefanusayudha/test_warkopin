@@ -9,7 +9,7 @@ import com.example.testwarkopin.databinding.ItemUserBinding
 import com.example.testwarkopin.domain.model.User
 import com.example.testwarkopin.util.DummyDiffer
 
-class UserListAdapter : ListAdapter<User, UserListAdapter.Holder>(DummyDiffer) {
+class UserListAdapter : ListAdapter<User, UserListAdapter.Holder>(DummyDiffer()) {
 
     inner class Holder(
         binding: ItemUserBinding
