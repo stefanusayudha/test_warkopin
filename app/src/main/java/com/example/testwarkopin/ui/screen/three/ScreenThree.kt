@@ -22,7 +22,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ScreenThree : Fragment() {
 
     private lateinit var binding: ScreenThreeBinding
-    private var filter: AgentPayload = AgentPayload()
+    private var filter: AgentPayload = AgentPayload(limit = 50)
     private lateinit var adapter: AgentListAdapter
     private val vm: ScreenThreeViewModel by viewModel()
 

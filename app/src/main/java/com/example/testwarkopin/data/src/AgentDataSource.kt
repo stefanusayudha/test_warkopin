@@ -15,7 +15,7 @@ class AgentDataSource(
             hashMapOf<String, String>().apply {
                 put("postal_code", "11234")
                 put("offset", "0")
-                put("limit", "20")
+                put("limit", pld.limit.toString())
                 put("types", "agent")
                 put("sort", "recent_activity_high")
             }
