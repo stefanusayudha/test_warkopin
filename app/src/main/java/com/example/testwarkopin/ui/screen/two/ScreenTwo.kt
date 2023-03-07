@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.example.testwarkopin.databinding.ActivityAgentBinding
 import com.example.testwarkopin.databinding.ScreenTwoBinding
 import com.example.testwarkopin.domain.model.AgentsItem
@@ -48,6 +50,14 @@ class ScreenTwo : Fragment() {
         binding.flipper.displayedChild = 0
 
         adapter = AgentListAdapter(::goToAgentDetailScreen)
+        adapter.registerAdapterDataObserver(
+            object : AdapterDataObserver() {
+                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                    binding.rv.smoothScrollToPosition(0)
+                    super.onItemRangeInserted(positionStart, itemCount)
+                }
+            }
+        )
         binding.rv.adapter = adapter
     }
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import com.example.testwarkopin.databinding.ScreenThreeBinding
 import com.example.testwarkopin.domain.model.AgentsItem
 import com.example.testwarkopin.domain.payload.AgentPayload
@@ -49,6 +50,14 @@ class ScreenThree : Fragment() {
         binding.flipper.displayedChild = 0
 
         adapter = AgentListAdapter(::goToAgentDetailScreen)
+        adapter.registerAdapterDataObserver(
+            object : RecyclerView.AdapterDataObserver() {
+                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                    binding.rv.smoothScrollToPosition(0)
+                    super.onItemRangeInserted(positionStart, itemCount)
+                }
+            }
+        )
         binding.rv.adapter = adapter
     }
 
