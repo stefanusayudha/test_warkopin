@@ -2,7 +2,9 @@ package com.example.testwarkopin.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
@@ -13,14 +15,19 @@ import com.example.testwarkopin.util.DummyDiffer
 
 class AgentListAdapter(
     private val onClick: (AgentsItem) -> Unit
-) : ListAdapter<AgentsItem, AgentListAdapter.Holder>(DummyDiffer()) {
+) : ListAdapter<AgentsItem?, AgentListAdapter.Holder>(DummyDiffer()) {
+
+    enum class ViewType {
+        SPACER, ITEM
+    }
 
     inner class Holder(
         binding: ItemAgentBinding
     ) : ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
-        parent: ViewGroup, viewType: Int
+        parent: ViewGroup,
+        viewType: Int
     ): Holder {
         return Holder(
             ItemAgentBinding.inflate(
@@ -31,6 +38,15 @@ class AgentListAdapter(
                 false
             )
         )
+
+    }
+
+    override fun getItemViewType(
+        position: Int
+    ): Int {
+        return if (currentList[position] == null)
+            ViewType.SPACER.ordinal
+        else ViewType.ITEM.ordinal
     }
 
     @SuppressLint("SetTextI18n")
@@ -39,6 +55,14 @@ class AgentListAdapter(
     ) {
         val data = currentList[position]
         val binding = ItemAgentBinding.bind(holder.itemView)
+
+        if (data == null) {
+            binding.root.visibility = View.INVISIBLE
+            binding.root.setOnClickListener(null)
+            return
+        }
+
+        binding.root.visibility = View.VISIBLE
 
         if (data.photo?.href.isNullOrBlank())
             binding.img.setImageResource(R.drawable.ic_singularity_logo)

@@ -97,7 +97,12 @@ class ScreenThree : Fragment() {
     private fun agentListCollector(
         list: List<AgentsItem>
     ) {
-        adapter.submitList(list.toMutableList())
+        val newList = mutableListOf<AgentsItem?>()
+            .apply {
+                this.addAll(list)
+                this.add(null)
+            }
+        adapter.submitList(newList)
         binding.flipper.displayedChild = 1
     }
 
