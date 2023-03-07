@@ -1,4 +1,4 @@
-package com.example.testwarkopin.data.src
+package com.example.testwarkopin.data.src.asset
 
 import com.example.testwarkopin.data.raw.UserRaw
 

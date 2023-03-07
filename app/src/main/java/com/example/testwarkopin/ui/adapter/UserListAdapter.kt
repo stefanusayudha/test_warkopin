@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testwarkopin.databinding.ItemUserBinding
 import com.example.testwarkopin.domain.model.User
+import com.example.testwarkopin.util.DummyDiffer
 
-class UserListAdapter : ListAdapter<User, UserListAdapter.Holder>(Differ) {
+class UserListAdapter : ListAdapter<User, UserListAdapter.Holder>(DummyDiffer) {
 
     inner class Holder(
         binding: ItemUserBinding
@@ -37,21 +38,4 @@ class UserListAdapter : ListAdapter<User, UserListAdapter.Holder>(Differ) {
         binding.name.text = data.name
         binding.email.text = data.email
     }
-}
-
-object Differ : DiffUtil.ItemCallback<User>() {
-    override fun areItemsTheSame(
-        oldItem: User,
-        newItem: User
-    ): Boolean {
-        return false
-    }
-
-    override fun areContentsTheSame(
-        oldItem: User,
-        newItem: User
-    ): Boolean {
-        return false
-    }
-
 }
